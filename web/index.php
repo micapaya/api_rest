@@ -13,7 +13,7 @@ $users = [
 
 $app = new Silex\Application();
 
-$app->get('/doc', function () {
+$app->get('/', function () {
 	return <<<EOT
 <!DOCTYPE html>
 <html>
@@ -23,37 +23,43 @@ $app->get('/doc', function () {
 	</head>
 	<body>
 		<pre>
-
 		<strong>
-		GET /users/
-		</strong>
-					
-					* renvoit la liste des utilisateurs *
+		GET /api/users/
+		</strong>		
+
+					* revoie la doc *
 					<hr>
 
 		<strong>
-		GET /users/{id}
+		GET /api/users/
+		</strong>
+					
+					* renvoie la liste des utilisateurs *
+					<hr>
+
+		<strong>
+		GET /api/users/{id}
 		</strong>
 
 					* renvoit le détail d'un utilisateur *
 					<hr>
 
 		<strong>
-		POST /users/
+		POST /api/users/
 		</strong>
 					
 					* ajoute un utilisateur *
 					<hr>
 
 		<strong>
-		PUT /users/{id}
+		PUT /api/users/{id}
 		</strong>
 					
 					* ajoute ou modifie un utilisateur *
 					<hr>
 
 		<strong>
-		DELETE /users/{id}
+		DELETE /api/users/{id}
 		</strong>
 
 					* supprime un utilisateur *
@@ -65,7 +71,7 @@ $app->get('/doc', function () {
 EOT;
 });
 
-$app->get('/users', function () use ($users) {
+$app->get('/api/users', function () use ($users) {
 	return json_encode($users, false);
 });
 
